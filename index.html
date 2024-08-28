@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/js/main.js">
+    <link rel="stylesheet" href="/assets/img/snt.jpg">
+
+    <title>Musical</title>
+
+    <script src="https://kit.fontawesome.com/05cacd1f06.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <aside>
+        <div class="logo header">
+            <i class="logo-icon fa-solid fa-compact-disc"></i>
+        </div>
+        <nav>
+            <a href="">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            <a href="">
+                <i class="fa-solid fa-heart"></i>
+            </a>
+            <a href="">
+                <i class="fa-solid fa-plus"></i>
+            </a>      
+        </nav>
+    </aside>
+
+    <section>
+        <div class="search-menu header">
+            <div class="search-input">
+                <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                <input class="search-text" type="text" placeholder="Search for song, artist, lyrics,...">
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h4 class="main-content-text">Your Playlist</h4>
+            <div class="playlist">
+
+        </div>
+    </section>
+    <article>
+        <div class="header"></div>
+        <div class="player">
+            <div class="cd">
+                <div class="cd-thumbnail" style="background-image: url('./assets/img/avt.png');"></div>
+            </div>
+            <div class="playing-song">
+                <h5 class="playing-song-name">MinhVu</h5>
+                <p class="playing-song-artist">HOYO-MiX · 黄龄 · 文驰 · TetraCalyx</p>
+            </div>
+            <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+            <div class="controls">
+                <div class="btn btn-repeat">
+                    <i class="fa-solid fa-rotate"></i>
+                </div>
+                <div class="btn btn-prev">
+                    <i class="fa-solid fa-backward"></i>
+                </div>
+                <div class="btn btn-toggle-play">
+                    <i class="icon-play fa-solid fa-circle-play"></i>
+                    <i class="icon-pause fa-solid fa-circle-pause"></i>
+                </div>
+                <div class="btn btn-next">
+                    <i class="icon-next fa-solid fa-forward"></i>
+                </div>
+                <div class="btn btn-shuffle">
+                    <i class="icon-shuffle fa-solid fa-shuffle"></i>
+                </div>
+            </div>
+            <audio id="audio" src=""></audio>
+        </div>
+    </article>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
