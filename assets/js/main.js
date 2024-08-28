@@ -11,6 +11,9 @@ const nextBtn = $('.btn-next')
 const randomBtn = $('.btn-shuffle')
 const repeatBtn = $('.btn-repeat')
 const playlist = $('.playlist')
+const songName = $('.playing-song-name')
+const song = $$('.song')
+const PLAYER_STORAGE_KEY = 'MUSIC_PLAYER'
 
    const app = {
     currentIndex: 0,
@@ -33,13 +36,13 @@ const playlist = $('.playlist')
         },
         {
             name: "Regret",
-            singer: " Lâm Bảo Ngọc, Quân A.P, Ali Hoàng Dương, Pháp Kiều, Quang Trung|Anh Trai Say Hi",
+            singer: " Lâm Bảo Ngọc, Quân A.P, Ali Hoàng Dương, Pháp Kiều, Quang Trung",
             path: "/assets/music/regret.mp3",
             image: "/assets/img/regret.jpg",
         },
         {
             name: "Hào Quang",
-            singer: "Rhyder, Dương Domic, Pháp Kiều | Anh Trai Say Hi [Performance]",
+            singer: "Rhyder, Dương Domic, Pháp Kiều",
             path: "/assets/music/hq.mp3",
             image: "/assets/img/hq.jpg",
         },
@@ -74,6 +77,11 @@ const playlist = $('.playlist')
             image: "/assets/img/ctcht.jpg",
         }
     ],
+
+    setConFig: function(key, value) {
+        this.configs[key] = value;
+        localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.configs))
+    },
 
     render: function () {
         const htmls = this.songs.map((song, index) => {
@@ -225,7 +233,7 @@ const playlist = $('.playlist')
         }, 300)
     },
     loadCurrentSong: function() {
-
+        songName.textContent = this.currentSong.singer
         heading.textContent = this.currentSong.name
         cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`
         audio.src = this.currentSong.path
@@ -267,5 +275,31 @@ const playlist = $('.playlist')
         this.render()
         }
    }
+
+   function handleFavorite(event) {
+    event.stopPropagation()
+    const songElement = event.target.closest('.song')
+    const dataIndex = songElement.dataset.index;
+    const favBtn = $(`.song-favorite-${dataIndex}`)
+
+    if (!app.songs[dataIndex].isFavorite) {
+        favBtn.classList.replace("fa-regular", "fa-solid")
+        app.songs[dataIndex].isFavorite = true;
+    } else {
+        favBtn.classList.replace("fa-solid", "fa-regular")
+        app.songs[dataIndex].isFavorite = false;
+    }
+}
+
+function handleRemove(event) {
+    event.stopPropagation()
+    const songElement = event.target.closest('.song')
+    const dataIndex = songElement.dataset.index;
+    const removeBtn = $(`.song-remove-${dataIndex}`)
+
+    const removeSong = removeBtn.closest('.song')
+    app.songs.splice(removeSong, 1)
+    removeSong.style.display = 'none'
+}
 
    app.start()

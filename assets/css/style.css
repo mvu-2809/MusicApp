@@ -326,3 +326,50 @@ article {
         width: 100%;
     }
 }
+
+.footer {
+    text-align: center;
+    padding: 24px 0;
+    background-color: #131313;
+}
+
+.footer__about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.footer__text {
+    font-size: 1.6rem;
+    color: var(--white-color);
+    letter-spacing: 3px;
+}
+
+.footer__img {
+    --size: 18px;
+    width: var(--size);
+    height: var(--size);
+    margin-left: 8px;
+}
+
+.footer__social {
+    margin-top: 8px;
+}
+
+.footer__social-link {
+    color: transparent;
+    text-decoration: none;
+    padding: 11px;
+    margin: 0px 12px;
+    display: inline-block;
+}
+
+.footer__social-link:hover {
+    opacity: 0.6;
+}
+
+.footer__social-icon {
+    color: #fff;
+    font-size: 2.3rem;
+}
