@@ -23,6 +23,12 @@ const PLAYER_STORAGE_KEY = 'MUSIC_PLAYER'
 
     songs: [
         {
+            name:"Thêm bao nhiêu lâu",
+            singer:"DatG",
+            path: "/assets/music/tbnl.mp3",
+            image: "/assets/img/tbnl.jpg",
+        },
+        {
             name: "Nắng lung linh",
             singer: "NguyenThuong",
             path: "/assets/music/nll.mp3",
@@ -35,28 +41,10 @@ const PLAYER_STORAGE_KEY = 'MUSIC_PLAYER'
             image: "/assets/img/snt.jpg",
         },
         {
-            name: "Regret",
-            singer: " Lâm Bảo Ngọc, Quân A.P, Ali Hoàng Dương, Pháp Kiều, Quang Trung",
-            path: "/assets/music/regret.mp3",
-            image: "/assets/img/regret.jpg",
-        },
-        {
-            name: "Hào Quang",
-            singer: "Rhyder, Dương Domic, Pháp Kiều",
-            path: "/assets/music/hq.mp3",
-            image: "/assets/img/hq.jpg",
-        },
-        {
-            name: "Hút",
-            singer: "Quân A.P, Lou Hoàng, Nicky, Hải Đăng Doo, WEAN, Ali, Pháp Kiều",
-            path: "/assets/music/hut.mp3",
-            image: "/assets/img/hut.jpg",
-        },
-        {
-            name: "Catch me if you can",
-            singer: "NEGAV x Quang Hùng MasterD x Nicky x Công Dương",
-            path: "/assets/music/cmiyc.mp3",
-            image: "/assets/img/cmiyc.jpg",
+            name: "Fake Love (Remix)",
+            singer: "Try your best",
+            path: "/assets/music/fk.mp3",
+            image: "/assets/img/fk.jpg",
         },
         {
             name: "Chúng ta không thuộc về nhau",
@@ -278,7 +266,7 @@ const PLAYER_STORAGE_KEY = 'MUSIC_PLAYER'
 
    function handleFavorite(event) {
     event.stopPropagation()
-    const songElement = event.target.closest('.song')
+    const songElement = event.target.closest('.songs')
     const dataIndex = songElement.dataset.index;
     const favBtn = $(`.song-favorite-${dataIndex}`)
 
@@ -293,7 +281,7 @@ const PLAYER_STORAGE_KEY = 'MUSIC_PLAYER'
 
 function handleRemove(event) {
     event.stopPropagation()
-    const songElement = event.target.closest('.song')
+    const songElement = event.target.closest('.songs')
     const dataIndex = songElement.dataset.index;
     const removeBtn = $(`.song-remove-${dataIndex}`)
 
